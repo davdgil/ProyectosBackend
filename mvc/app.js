@@ -20,3 +20,5 @@ app.listen(port, () => {
 dbConnect()
 
 app.use("/api", require("./routes"))
+
+app.use(express.static("storage"))

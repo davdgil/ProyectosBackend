@@ -1,9 +1,15 @@
 const mongoose = require("mongoose");
 
 const UserScheme = new mongoose.Schema({
-    name: { type: String },
-    age: { type: Number },
-    email: { type: String, unique: true },
+    name: { 
+        type: String 
+    },
+    age: { 
+        type: Number 
+    },
+    email: {
+         type: String, unique: true 
+        },
     password: { 
         type: String 
     }, // TODO: Guardaremos el hash
