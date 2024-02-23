@@ -4,8 +4,13 @@ const UserScheme = new mongoose.Schema({
     name: { type: String },
     age: { type: Number },
     email: { type: String, unique: true },
-    password: { type: String }, // TODO: Guardaremos el hash
-    role: { type: ["user", "admin"], default: "user" } // es el enum de SQL
+    password: { 
+        type: String 
+    }, // TODO: Guardaremos el hash
+    role: { 
+        type: ["user", "admin"], 
+        default: "user"
+     } // es el enum de SQL
 }, {
     timestamps: true, // TODO: createdAt, updatedAt
     versionKey: false
