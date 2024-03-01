@@ -85,6 +85,29 @@ api_key: Api-publica-123
 
 ###
 
-GET http://localhost:3000/api/tracks/65d7dbe995fa9e89c0d546fb HTTP/1.1
+GET http://localhost:3000/api/tracks/65dd9b855cd4762a7edcd217 HTTP/1.1
 
+###
 
+PUT http://localhost:3000/api/tracks/65dd9b855cd4762a7edcd217 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Ric4",
+    "album": "Album2",
+    "cover": "http://t2.com",
+    "artist": {
+        "name": "Ric4",
+        "nickname": "surname2",
+        "nationality": "ES"
+    },
+    "duration": {
+        "start":1,
+        "end":2
+    },
+    "mediaId": "0123456789abcdef01234567"
+  
+}
+
+###
+DELETE http://localhost:3000/api/tracks/65dd9b855cd4762a7edcd217

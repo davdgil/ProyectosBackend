@@ -42,18 +42,25 @@ const getItem = async (req, res) => {
 
 }
 
-const updateItem = async(req, res) => {
+const updateItem = async (req, res) => {
     try {
         const { id, ...body } = matchedData(req); // Extrae el id y el resto lo asigna a la constante body
-        const data = await tracksModel.findOneAndUpdate(id, body);
+        const data = await tracksModel.findById(id, body);
         res.send(data)
     } catch (err) {
         handleHttpError(res, 'ERROR_UPDATE_ITEMS')
     }
 }
 
-const deleteItem = (req, res) => {
-
+const deleteItem = async (req, res) => {
+    try {
+        const { id } = matchedData(req)
+        const data = await tracksModel.delete({ _id: id })
+        res.send(data)
+    }catch(err){
+        handleHttpError(res, 'ERROR_DELETE_ITEMS')
+    }
+    
 }
 
 module.exports = {

@@ -24,22 +24,7 @@ const validatorGetItem = [
     }
 ]
 
-const validatorUpdateItem = [
-    check("name").optional().notEmpty(), 
-    check("album").optional().notEmpty(),
-    check("cover").optional().notEmpty(),
-    check("artist").optional().notEmpty(),
-    check("artist.name").optional().notEmpty(),
-    check("artist.nickname").optional().notEmpty(),
-    check("artist.nationality").optional().notEmpty(),
-    check("duration.start").optional().notEmpty().isInt(),
-    check("duration.end").optional().notEmpty().isInt(),
-    check("mediaId").optional().notEmpty().isMongoId(),
-    (req, res, next) =>{
-
-    return validateResults(req, res, next)
-}
-];
 
 
-module.exports = { validatorCreateItem, validatorGetItem, validatorUpdateItem };
+
+module.exports = { validatorCreateItem, validatorGetItem };
