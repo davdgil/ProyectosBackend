@@ -1,7 +1,7 @@
 
 
 const models = {
-    commerceModels : require("./nosql/commerce")
+    commerceModel : require("./nosql/commerce")
 }
 
 module.exports = models;

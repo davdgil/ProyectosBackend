@@ -1,0 +1,32 @@
+
+POST http://localhost:9000/api/commerce HTTP/1.1
+Content-Type: application/json
+
+{
+    "commerceName" : "tarKov",
+    "cif" : "08465432T",
+    "adress" : "Primorosky ",
+    "email" : "state@gmail.com",
+    "phone" :  "678765453"
+
+}
+
+###
+
+GET http://localhost:9000/api/commerce HTTP/1.1
+
+###
+
+GET http://localhost:9000/api/commerce/02730413Z HTTP/1.1
+
+###
+
+PUT http://localhost:9000/api/commerce/02730413Z HTTP/1.1
+
+{
+    "commerceName" : "MacDonald",
+    "adress" : "C/tulipa n 7",
+    "email" : "burguerKing@gmail.com",
+    "phone" :  "678765453"
+
+}

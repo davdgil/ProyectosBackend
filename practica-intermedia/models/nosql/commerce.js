@@ -13,9 +13,8 @@ const commerceScheme = new mongoose.Schema(
             validate: {
                 validator: (req) => {
                     //le pasamos una regla que debera testear con la funcion test, en la que
-                    //compruba que el primer caracter sea una letra seguido de 7 digitos
-                    //y el ultimo valor que sea o un numero o una letra
-                    const cifRegex = /^[ABCDEFGHJKLMNPQRSUVW]\d{7}[0-9A-J]$/;
+                    //comprueba que los 8 primeros digitos son numeros y el ultimo valor es una letra
+                    const cifRegex = /^\d{8}[A-Za-z]$/;
                     return cifRegex.test(req);
                 },
                 //si la validacion no se cumple salta este mensaje de error
