@@ -3,11 +3,11 @@ const { commerceModel } = require("../models/index")
 const { matchedData } = require('express-validator')
 
 const createCommerce = async (req, res) => {
-    
+
     try {
-        //recogemos la informa del body de req
+        //recogemos la informacion del body de req
         //a partir del body creamos un nuevo comercio
-        const { body } = matchedData(req);
+        const body = matchedData(req);
         //creamos un nuevo objeto a partir de body de la petición
         const data = await commerceModel.create(body);
         res.send(data)
@@ -18,9 +18,8 @@ const createCommerce = async (req, res) => {
 }
 const getCommerce = async (req, res) => {
     try {
-        const { cif } = req.params
-        console.log(cif)
-        const commerce = await commerceModel.findOne( {cif} )
+        const cif = matchedData(req)
+        const commerce = await commerceModel.findOne(cif)
         res.send(commerce)
 
     } catch (err) {
@@ -33,18 +32,34 @@ const getCommerces = async (req, res) => {
 }
 const updateCommerce = async (req, res) => {
     try {
-        const { cif } = req.params
-        const { ...body } = req // Extrae el cif y el resto lo asigna a la constante body
-        console.log(cif, body)
-        //busca el cif, y actualiza el body
-        const data = await commerceModel.findOneAndUpdate({ cif }, body);
+        const { cif, ...body } = matchedData(req) //Extrae el cif y el resto lo asigna a la constante body
+        const data = await commerceModel.findOneAndUpdate({ cif: cif }, body);
+        console.log("datos actualizados")
         res.send(data)
     } catch (err) {
-       // handleHttpError(res, 'ERROR_UPDATE_ITEMS')
+        console.log(err)
+        handleHttpError(res, 'ERROR_UPDATE_COMMERCE')
     }
 }
 const deleteCommerce = async (req, res) => {
-    
+    try {
+        const { cif } = matchedData(req)
+        //segun que pille en la request hara un soft delete o un borrado logico
+        if(req.query.soft === "true"){
+            //soft delete
+            const data = await commerceModel.delete({ cif: cif });
+            console.log("1")
+            res.send(data)
+        }else{
+            //borrado logico
+            const data = await commerceModel.findOneAndDelete({cif:cif})
+            console.log("2")
+            res.send(data)
+        }
+        
+    } catch (err) {
+        handleHttpError(res, 'ERROR_DELETE_ITEM')
+    }
 }
 
 module.exports = {

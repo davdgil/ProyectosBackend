@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const mongooseDelete = require("mongoose-delete")
 
 const commerceScheme = new mongoose.Schema(
     {
@@ -40,7 +41,11 @@ const commerceScheme = new mongoose.Schema(
             type: mongoose.Types.ObjectId
         }
 
+    },
+    {   
+        timestamp: true, // crea los campos de createdAt, updatedAt
+        versionKey: false
     }
 );
-
+commerceScheme.plugin(mongooseDelete, {overrideMethods: "all"})
 module.exports = mongoose.model("commerce", commerceScheme)
