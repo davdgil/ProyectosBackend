@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { getCommerces, getCommerce, createCommerce, updateCommerce, deleteCommerce } = require("../controller/commerce")
 const { validatorCreateCommerce, validatorGetCommerce } = require("../validators/commerce")
+//rutas para redirigir las peticiones
 router.post("/", validatorCreateCommerce, createCommerce)
 router.get("/", getCommerces)
 router.get("/:cif", getCommerce)

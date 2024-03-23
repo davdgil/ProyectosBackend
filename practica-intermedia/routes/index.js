@@ -8,9 +8,9 @@ const removeExtension = (fileName) => {
 }
 
 fs.readdirSync(__dirname).filter((file) => {
-    const name = removeExtension(file); // index, users, storage, tracks
+    const name = removeExtension(file); // 
     if (name !== 'index') {
-        router.use('/' + name, require('./' + name)); // http://localhost:3000/api/tracks
+        router.use('/' + name, require('./' + name)); // http://localhost:3000/api/commerce
     }
 });
 

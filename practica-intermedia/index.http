@@ -3,20 +3,22 @@ POST http://localhost:9000/api/commerce HTTP/1.1
 Content-Type: application/json
 
 {
-    "commerceName" : "juernes",
-    "cif" : "07409442T",
+    "commerceName" : "sabado",
+    "cif" : "00409442T",
     "adress" : "Primorosky ",
-    "email" : "juernes@gmail.com",
+    "email" : "sabado@gmail.com",
     "phone" :  "678765453"
 
 }
 
 ###
 
-GET http://localhost:9000/api/commerce HTTP/1.1
+GET http://localhost:9000/api/commerce?sort=true HTTP/1.1
 
 ###
 
+GET http://localhost:9000/api/commerce?sort=false HTTP/1.1
+###
 GET http://localhost:9000/api/commerce/02730413Z HTTP/1.1
 
 ###

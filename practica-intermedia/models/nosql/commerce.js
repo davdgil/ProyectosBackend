@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+//para que se añada el campo delete para elsoft delete
 const mongooseDelete = require("mongoose-delete")
 
 const commerceScheme = new mongoose.Schema(
