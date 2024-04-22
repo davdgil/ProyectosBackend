@@ -97,7 +97,7 @@ const options = {
                 }
               },
               mediaId: {
-                type: mongoose.Types.ObjectId 
+                type: String
               }
             }
           }

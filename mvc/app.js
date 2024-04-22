@@ -26,3 +26,5 @@ dbConnect()
 app.use("/api", require("./routes"))
 
 app.use(express.static("storage"))
+
+module.exports = app;
