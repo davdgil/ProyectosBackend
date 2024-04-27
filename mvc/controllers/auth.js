@@ -13,7 +13,7 @@ router.post("/register", validatorRegister, async (req, res) => {
     const password = await encrypt(req.password);
     const body = { ...req, password }; // Con "..." duplicamos el objeto y le añadimos o sobreescribimos una propiedad
     const dataUser = await usersModel.create(body);
-    dataUser.set('password', undefined, { strict: false });
+    dataUser.set('passwozrd', undefined, { strict: false });
     const data = { token: await tokenSign(dataUser), user: dataUser };
     res.send(data);
 });
