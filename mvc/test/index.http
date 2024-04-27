@@ -122,3 +122,12 @@ Content-Type: application/json
     "email": "ssd@gmail.com"
     
 }
+
+###
+
+GET http://localhost:3000/api/tracks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWU2ZTk0ZTM0ZWNjOWI0NTRkNzgwM2EiLCJlbWFpbCI6InNzZEBnbWFpbC5jb20iLCJpYXQiOjE3MTAyMzM4ODAsImV4cCI6MTcxMDI0MTA4MH0.ifBJre6EUOsZqAVnO3CSdVXYUfB9f1vF3t0CGwl3CSU
+
+
+
+###
